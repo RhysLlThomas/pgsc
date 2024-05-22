@@ -18,6 +18,7 @@ gsc.grad.cl.k <- function(W, Y, D, b, k.idx, sig.i=NULL ){
     for( tt in 1:TT ){
       out[nn,tt] <- 1 / sig.i[nn] * ( ( D[nn, k.idx, tt] - sum( D[,k.idx,tt] * W[nn,]) ) * 
                                         ( Y[nn,tt] - sum( D[nn,,tt] * v.b ) - sum( W[nn,] * ( Y[,tt] - D[,,tt] %*% v.b ) ) ) )
+      as.matrix(D[, , tt]) %*% b))))
     }
   }
   return(out)
